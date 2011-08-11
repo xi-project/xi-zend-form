@@ -67,7 +67,7 @@ class FileApiFile extends \Zend_Form_Element_Hidden
     public function getFileData()
     {
         $parts = explode(',', $this->getValue());
-        if (count($parts) === 2 && strpos('base64', $parts[0]) !== false) {
+        if (count($parts) === 2 && strpos($parts[0], 'base64') !== false) {
             return base64_decode($parts[1]);
         }
     }
