@@ -30,6 +30,7 @@ class FileApiFile extends \Zend_Form_Element_Hidden
     protected $_scriptLocation;
     protected $_maximumFileSize;
     protected $_loadCallbackScript;
+    protected $_filePresentation;
     
     public function setScriptLocation($location = 'head')
     {
@@ -37,6 +38,7 @@ class FileApiFile extends \Zend_Form_Element_Hidden
         
         return $this;
     }
+    
     public function getScriptLocation()
     {
         return $this->_scriptLocation ?: 'head';
@@ -48,6 +50,7 @@ class FileApiFile extends \Zend_Form_Element_Hidden
         
         return $this;
     }
+    
     public function getMaximumFileSize()
     {
         return $this->_maximumFileSize ?: 10240; // 10KiB
@@ -59,9 +62,29 @@ class FileApiFile extends \Zend_Form_Element_Hidden
         
         return $this;
     }
+    
     public function getLoadCallbackScript()
     {
         return $this->_loadCallbackScript;
+    }
+    
+    /**
+     * Sets a visible presentation of an existing file/value in this element.
+     * The presentation is injected into <div class="file-api-file">.
+     * 
+     * @param string $presentation May contain e.g. HTML.
+     * @return FileApiFile 
+     */
+    public function setFilePresentation($presentation)
+    {
+        $this->_filePresentation = $presentation;
+        
+        return $this;
+    }
+    
+    public function getFilePresentation()
+    {
+        return $this->_filePresentation;
     }
     
     public function getFileData()
@@ -79,7 +102,9 @@ class FileApiFile extends \Zend_Form_Element_Hidden
         $this->clearDecorators();
         
         $this->addDecorator(new \Zend_Form_Decorator_Callback(array('callback' => function($content, $element, $options) {
-            return '<div class="file-api-file" data-name="' . $element->getName() . '"></div>'
+            return '<div class="file-api-file" data-name="' . $element->getName() . '">' .
+                   $element->getFilePresentation()
+                 . '</div>'
                  . '<input type="hidden" name="' . $element->getName() . '" />';
         })));
         
