@@ -27,7 +27,7 @@ class HashElement extends \Zend_Form_Element_Hash
     /**
      * Session name uses only the class name and the security element name.
      * 
-     * This way all DS Secure forms share one hash.
+     * This way all Secure forms share one hash.
      *
      * @return string 
      */
