@@ -10,7 +10,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Xi\\Zend\\Form": "library/Xi/Zend/Form"
+            "Xi\\Zend\\Form\\": "library/Xi/Zend/Form"
         }
     }
 }
