@@ -9,9 +9,8 @@
     "require": {
     },
     "autoload": {
-        "psr-0": {
-            "Xi\\Zend\\Form": "xi-zend-form/library/"
+        "psr-4": {
+            "Xi\\Zend\\Form": "library/Xi/Zend/Form"
         }
-    },
-    "target-dir": "xi-zend-form"
+    }
 }
