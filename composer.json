@@ -1,0 +1,16 @@
+{
+    "name": "xi/zend-form",
+    "authors": [
+        {
+            "name": "xi-project",
+            "email": "xi.devs@gmail.com"
+        }
+    ],
+    "require": {
+    },
+    "autoload": {
+        "psr-4": {
+            "Xi\\Zend\\Form\\": "library/Xi/Zend/Form"
+        }
+    }
+}
